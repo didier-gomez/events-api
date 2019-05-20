@@ -6,11 +6,14 @@ var Schema = mongoose.Schema;
 
 var UserSchema = Schema({
     name: String,
-    surname: String,
+    nickname: String,
     email: String,
     password: String,
     role: String, 
-    image: String
+    image: String,
+    fb_id: String,
+    fb_token: String,
+    categories: Object
 });
 
 module.exports = mongoose.model('User', UserSchema);

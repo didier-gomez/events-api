@@ -4,15 +4,16 @@ var mongoose = require('mongoose');
 
 var app = require('./app');
 
-var port = 3800;
+var app_port = 3800;
+var ip = "127.0.0.1";
 
 mongoose.Promise = global.Promise;
 mongoose
-    .connect('mongodb://localhost:27017/event_api')
+    .connect(`mongodb://${ip}:27017/event_api`)
     .then(() => {
-        console.log("La conexión a la base de datos curso_mean_social se ha realizado correctamente")    
-        app.listen(port, () => {
-            console.log("servidor corriendo en http://localhost:3800");
+        console.log("La conexión a la base de datos event_api se ha realizado correctamente")    
+        app.listen(app_port, () => {
+            console.log(`servidor corriendo en ${ip}:${app_port}`);
         });
     })
     .catch(err => console.log(err));
